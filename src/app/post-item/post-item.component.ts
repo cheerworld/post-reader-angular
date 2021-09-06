@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Post } from '../models/Post';
 
 @Component({
@@ -8,6 +8,7 @@ import { Post } from '../models/Post';
 })
 export class PostItemComponent implements OnInit {
   @Input() post: Post;
+  @Output() hidePost: EventEmitter<Post> = new EventEmitter();
 
   constructor() {
     this.post = {
@@ -26,5 +27,9 @@ export class PostItemComponent implements OnInit {
 
   downvote(post: Post) {
     post.votes -= 1;
+  }
+
+  hide(post: Post): void {
+    this.hidePost.emit(post);
   }
 }
