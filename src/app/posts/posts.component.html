@@ -2,3 +2,5 @@
 <h2 *ngIf="title==='Posts'" [ngStyle]="{'color': title ==='Posts' ? 'pink' : 'blue'}">Check out these posts!</h2>
 
 <app-post-item *ngFor="let post of posts" [post]="post" (hidePost)="hidePost($event)"></app-post-item>
+
+<app-create-post (addPost)="addPost($event)"></app-create-post>
