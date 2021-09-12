@@ -1,3 +1,4 @@
+/*
 export class Post {
   id: number;
   title: string;
@@ -10,4 +11,11 @@ export class Post {
     this.body = '';
     this.votes = 1;
   }
+}
+*/
+export interface Post {
+  id: number;
+  title: string;
+  body: string;
+  votes: number;
 }

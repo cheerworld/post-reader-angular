@@ -15,12 +15,14 @@ export class PostsComponent implements OnInit {
 
   ngOnInit(): void {
     this.postService.getPosts().subscribe((res) => {
+      console.log(res);
       for (let index = 0; index < res.length; index++) {
         const post = res[index];
         post['votes'] = 1;
       }
 
       this.posts = res;
+      console.log(res);
     });
   }
 
