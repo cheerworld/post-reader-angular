@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HttpClientModule } from '@angular/common/http';
 import { PostsComponent } from './posts.component';
 
 describe('PostsComponent', () => {
@@ -8,9 +8,10 @@ describe('PostsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PostsComponent ]
-    })
-    .compileComponents();
+      imports: [HttpClientModule],
+      providers: [PostsComponent],
+      declarations: [PostsComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -21,5 +22,9 @@ describe('PostsComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should have the correct title', () => {
+    expect(component.title).toBe('Posts');
   });
 });
